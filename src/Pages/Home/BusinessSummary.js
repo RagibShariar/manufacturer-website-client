@@ -15,42 +15,42 @@ const BusinessSummary = () => {
 
             <div className='lg:flex '>
                 {/* 1 */}
-            <div class="card card-compact w-96 text-center  mb-6">
+            <div className="card card-compact w-96 text-center  mb-6">
             <div className='text-9xl text-primary'>
             <FontAwesomeIcon icon={faEarth} />
             </div>
-                <div class="card-body">
-                    <h2 class="mt-6 mb-2 text-8xl font-bold text-secondary">3</h2>
+                <div className="card-body">
+                    <h2 className="mt-6 mb-2 text-8xl font-bold text-secondary">3</h2>
                     <p className='text-xl text-primary uppercase'>Million Sold</p>
                 </div>
             </div>
-            <div class="card card-compact w-96 text-center   mb-6 ">
+            <div className="card card-compact w-96 text-center   mb-6 ">
             <div className='text-9xl text-primary'>
             <FontAwesomeIcon icon={faHandshake} />
             </div>
             {/* 2 */}
-                <div class="card-body">
-                    <h2 class="mt-6 mb-2 text-8xl font-bold text-secondary">45</h2>
+                <div className="card-body">
+                    <h2 className="mt-6 mb-2 text-8xl font-bold text-secondary">45</h2>
                     <p className='text-xl text-primary uppercase '>Partners</p>
                 </div>
             </div>
-            <div class="card card-compact w-96 text-center   mb-6 ">
+            <div className="card card-compact w-96 text-center   mb-6 ">
             <div className='text-9xl text-primary'>
             <FontAwesomeIcon icon={faUsers} />
             </div>
             {/* 3 */}
-                <div class="card-body">
-                    <h2 class="mt-6 mb-2 text-8xl font-bold text-secondary">500+</h2>
+                <div className="card-body">
+                    <h2 className="mt-6 mb-2 text-8xl font-bold text-secondary">500+</h2>
                     <p className='text-xl text-primary uppercase'>Regular Client</p>
                 </div>
             </div>
-            <div class="card card-compact w-96 text-center   mb-6 ">
+            <div className="card card-compact w-96 text-center   mb-6 ">
             <div className='text-9xl text-primary'>
             <FontAwesomeIcon icon={faComments} />
             </div>
             {/* 4 */}
-                <div class="card-body">
-                    <h2 class="mt-6 mb-2 text-8xl font-bold text-secondary">900+</h2>
+                <div className="card-body">
+                    <h2 className="mt-6 mb-2 text-8xl font-bold text-secondary">900+</h2>
                     <p className='text-xl text-primary uppercase'>Reviews</p>
                 </div>
             </div>
