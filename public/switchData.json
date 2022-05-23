@@ -1,0 +1,90 @@
+[
+    {
+       "_id":1,
+       "name":"CHERRY MX RED",
+       "type":"SMOOTH AND DIRECT",
+       "img":"https://i.ibb.co/1ZDDVNx/mxRed.png",
+       "price":"20.00",
+       "description":"Linear switching characteristics",
+       "available":"1000",
+       "minimumOrder":"50",
+       "sold":""
+    },
+    {
+       "_id":2,
+       "name":"CHERRY MX BLUE",
+       "type":"CLICKY AND NOTICEABLE",
+       "img":"https://i.ibb.co/LPmTVPc/mxBlue.png",
+       "price":"12.00",
+       "description":"Tactile  and audible switching characteristics",
+       "available":"1000",
+       "minimumOrder":"50",
+       "sold":""
+    },
+    {
+       "_id":3,
+       "name":"CHERRY MX BROWN",
+       "type":"FOCUSED AND NOTICEABLE",
+       "img":"https://i.ibb.co/xMGSQzn/mxBrown.png",
+       "price":"15.00",
+       "description":"Tactile switching characteristics",
+       "available":"1500",
+       "minimumOrder":"50",
+       "sold":""
+    },
+    {
+       "_id":4,
+       "name":"CHERRY MX SILENT RED",
+       "type":"SMOOTH AND SILENT",
+       "img":"https://i.ibb.co/Dgz0hLG/mx-Red-Silent.png",
+       "price":"25.00",
+       "description":"Linear switching characteristics",
+       "available":"900",
+       "minimumOrder":"50",
+       "sold":""
+    },
+    {
+       "_id":5,
+       "name":"CHERRY MX SILENT BLACK",
+       "type":"POWERFUL AND SILENT",
+       "img":"https://i.ibb.co/NszrYyB/mx-Black-Silent.png",
+       "price":"25.00",
+       "description":"Linear switching characteristics",
+       "available":"900",
+       "minimumOrder":"50",
+       "sold":""
+    },
+    {
+       "_id":6,
+       "name":"CHERRY MX BLACK",
+       "type":"POWERFUL AND DIRECT",
+       "img":"https://i.ibb.co/VW2Lh7Q/mxBlack.png",
+       "price":"20.00",
+       "description":"Linear switching characteristics",
+       "available":"850",
+       "minimumOrder":"50",
+       "sold":""
+    },
+    {
+       "_id":7,
+       "name":"CHERRY MX SPEED SILVER",
+       "type":"FAST AND DIRECT",
+       "img":"https://i.ibb.co/T2Zmdb9/mx-Speed-Silver.png",
+       "price":"30.00",
+       "description":"Linear switching characteristics",
+       "available":"700",
+       "minimumOrder":"50",
+       "sold":""
+    },
+    {
+       "_id":8,
+       "name":"CHERRY MV LINEAR",
+       "type":"PROGRESSIVE AND LUMINOUS",
+       "img":"https://i.ibb.co/MRMcXQD/GIF-MV-Viola.gif",
+       "price":"50.00",
+       "description":"Crosslinear switching characteristics",
+       "available":"500",
+       "minimumOrder":"40",
+       "sold":""
+    }
+ ]

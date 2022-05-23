@@ -4,11 +4,12 @@ import logo from '../../logo.svg';
 
 const Navbar = ({children}) => {
     const menuItems = <>
-        <li><NavLink className="rounded-lg" to="/">Home</NavLink></li>
-        <li><NavLink className="rounded-lg" to="/about">About</NavLink></li>
-        <li><NavLink className="rounded-lg" to="/reviews">Reviews</NavLink></li>
-        <li><NavLink className="rounded-lg" to="/blogs">Blogs</NavLink></li>
-        <li><NavLink className="rounded-lg" to="/login">Login</NavLink></li>
+        <li><NavLink className="mx-1 hover:underline " to="/">Home</NavLink></li>
+        <li><NavLink className="mx-1 hover:underline" to="/about">About</NavLink></li>
+        <li><NavLink className="mx-1 hover:underline" to="/products">Products</NavLink></li>
+        <li><NavLink className="mx-1 hover:underline " to="/reviews">Reviews</NavLink></li>
+        <li><NavLink className="mx-1 hover:underline " to="/blogs">Blogs</NavLink></li>
+        <li><NavLink className="mx-1 btn btn-outline hover:bg-primary hover:border-primary" to="/login">Login</NavLink></li>
     </>
     return (
         <div className=''>
@@ -19,7 +20,9 @@ const Navbar = ({children}) => {
     <div className="w-full navbar  text-slate-400 bg-secondary fixed top-0 z-20">
       
       <div className="flex-1 px-2 mx-2 ">
-        <img src={logo} alt="" />
+        <Link as={Link} to='/'>
+          <img src={logo} alt="" />
+        </Link>
       </div>
       <div className="flex-none lg:hidden">
         <label for="my-drawer-3" className="btn btn-square btn-ghost">
@@ -28,7 +31,7 @@ const Navbar = ({children}) => {
         </label>
       </div> 
       <div className="flex-none hidden lg:block ">
-        <ul className="menu menu-horizontal  ">
+        <ul className="menu menu-horizontal font-bold ">
           {/* <!-- Navbar menu content here --> */}
           {menuItems}
         </ul>
@@ -39,7 +42,7 @@ const Navbar = ({children}) => {
   </div> 
   <div className="drawer-side">
     <label for="my-drawer-3" className="drawer-overlay"></label> 
-    <ul className="menu p-4 overflow-y-auto w-80 bg-primary">
+    <ul className="menu p-4 overflow-y-auto w-4/5 bg-primary font-bold">
       {/* <!-- Sidebar content here --> */}
       {menuItems}
     </ul>
