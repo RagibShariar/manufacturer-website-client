@@ -1,17 +1,17 @@
 [
     {
-       "_id":1,
+       "_id":"1",
        "name":"CHERRY MX RED",
        "type":"SMOOTH AND DIRECT",
        "img":"https://i.ibb.co/1ZDDVNx/mxRed.png",
        "price":"20.00",
        "description":"Linear switching characteristics",
-       "available":"1000",
+       "available":"",
        "minimumOrder":"50",
        "sold":""
     },
     {
-       "_id":2,
+       "_id":"2",
        "name":"CHERRY MX BLUE",
        "type":"CLICKY AND NOTICEABLE",
        "img":"https://i.ibb.co/LPmTVPc/mxBlue.png",
@@ -22,7 +22,7 @@
        "sold":""
     },
     {
-       "_id":3,
+       "_id":"3",
        "name":"CHERRY MX BROWN",
        "type":"FOCUSED AND NOTICEABLE",
        "img":"https://i.ibb.co/xMGSQzn/mxBrown.png",
@@ -33,7 +33,7 @@
        "sold":""
     },
     {
-       "_id":4,
+       "_id":"4",
        "name":"CHERRY MX SILENT RED",
        "type":"SMOOTH AND SILENT",
        "img":"https://i.ibb.co/Dgz0hLG/mx-Red-Silent.png",
@@ -44,7 +44,7 @@
        "sold":""
     },
     {
-       "_id":5,
+       "_id":"5",
        "name":"CHERRY MX SILENT BLACK",
        "type":"POWERFUL AND SILENT",
        "img":"https://i.ibb.co/NszrYyB/mx-Black-Silent.png",
@@ -55,7 +55,7 @@
        "sold":""
     },
     {
-       "_id":6,
+       "_id":"6",
        "name":"CHERRY MX BLACK",
        "type":"POWERFUL AND DIRECT",
        "img":"https://i.ibb.co/VW2Lh7Q/mxBlack.png",
@@ -66,7 +66,7 @@
        "sold":""
     },
     {
-       "_id":7,
+       "_id":"7",
        "name":"CHERRY MX SPEED SILVER",
        "type":"FAST AND DIRECT",
        "img":"https://i.ibb.co/T2Zmdb9/mx-Speed-Silver.png",
@@ -77,7 +77,7 @@
        "sold":""
     },
     {
-       "_id":8,
+       "_id":"8",
        "name":"CHERRY MV LINEAR",
        "type":"PROGRESSIVE AND LUMINOUS",
        "img":"https://i.ibb.co/MRMcXQD/GIF-MV-Viola.gif",
