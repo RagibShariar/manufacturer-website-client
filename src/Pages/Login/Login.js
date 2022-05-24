@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../logo.svg';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 
@@ -18,11 +18,11 @@ const Login = () => {
     }
 
     if(error || googleError){
-        signInError = <p className='text-red-500'><small>{error?.message || googleError?.message}</small></p>
+        signInError = <p className=' text-red-500'><small>{error?.message || googleError?.message}</small></p>
     }
 
-    if (googleUser) {
-        // console.log(googleUser);
+    if (user || googleUser) {
+        console.log( user || googleUser );
     }
 
     const onSubmit = data => {
@@ -36,7 +36,7 @@ const Login = () => {
     // }
 
     return (
-        <div className='bg-slate-100 py-20'>
+        <div className='bg-slate-100 py-10'>
 
             <div className="mt-16 w-full max-w-sm p-6 m-auto bg-white rounded-md shadow-md">
                 <div className="flex justify-center ">
@@ -71,7 +71,7 @@ const Login = () => {
                         </div>
 
                         <input type="password" placeholder='Password'
-                            className="mb-7 block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" 
+                            className=" block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md   dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" 
                             {...register("password", { 
                                 required: {
                                 value:true ,
@@ -87,7 +87,7 @@ const Login = () => {
                             {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                         {/* <span className="label-text-alt">Alt label</span> */}
                     </div>
-
+                            <div className="mt-7"></div>
                     {/* show error message */}
                     {signInError}
 
@@ -127,8 +127,10 @@ const Login = () => {
 
                 </div>
 
-                <p className="mt-8 text-xs font-light text-center text-gray-400 "> Don't have an account? <a href="#"
-                    className="font-medium text-gray-700  hover:underline">Create One</a></p>
+                <p className="mt-8 text-xs font-light text-center text-gray-600 "> Don't have an account?
+                    <Link to="/signup"
+                    className="font-medium text-gray-700  hover:underline"> Create One</Link>
+                </p>
             </div>
         </div>
     );
