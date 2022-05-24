@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Product = ({ product }) => {
     const {name, type, img, price, description, available, minimumOrder} = product ;
@@ -17,7 +18,7 @@ const Product = ({ product }) => {
                 </div>
                 <div className="card-actions items-center justify-between mb-4">
                     <h3 className='text-4xl font-bold'>$ {price}</h3>
-                    <button disabled={available===""} className="btn btn-primary font-bold text-white">place order</button>
+                    <NavLink to="/cart" disabled={available===""} className="btn btn-primary font-bold text-white">place order</NavLink>
                 </div>
             </div>
         </div>

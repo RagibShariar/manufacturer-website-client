@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import logo from '../../logo.svg';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
@@ -10,25 +10,33 @@ const SignUp = () => {
     const [checked, setChecked] = useState(false);
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const navigate =useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
 
     let signInError;
 
-    if (loading || googleLoading) {
+    if (loading || googleLoading || updating) {
         return <Loading></Loading>
     }
 
-    if (error || googleError) {
-        signInError = <p className=' text-red-500'><small>{error?.message || googleError?.message}</small></p>
+    if (error || googleError || updateError) {
+        signInError = <p className=' text-red-500'><small>{error?.message || googleError?.message || updateError?.message}</small></p>
     }
 
     if (user || googleUser) {
         console.log(user || googleUser);
     }
 
-    const onSubmit = data => {
-        console.log(data);
-        createUserWithEmailAndPassword(data.email, data.password);
+    const onSubmit = async data => {
+        // console.log(data);
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
+        // console.log('Update done');
+        navigate( from, { replace: true });
     }
 
     return (
@@ -42,7 +50,7 @@ const SignUp = () => {
                 <form onSubmit={handleSubmit(onSubmit)} className="mt-8 ">
                     {/* name field */}
                     <div className=''>
-                        <label for="name" className="block text-sm ">Your Name</label>
+                        <label htmlFor="name" className="block text-sm ">Your Name</label>
                         <input type="text" placeholder='Your Name'
                             className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             {...register("name", {
@@ -58,7 +66,7 @@ const SignUp = () => {
 
                     {/* email field */}
                     <div className='mt-4'>
-                        <label for="username" className="block text-sm ">Email</label>
+                        <label htmlFor="username" className="block text-sm ">Email</label>
                         <input type="email" placeholder='Your Email'
                             className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border rounded-md  dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                             {...register("email", {
@@ -80,7 +88,7 @@ const SignUp = () => {
                     {/* pass field */}
                     <div className="mt-4">
                         <div className="flex items-center justify-between">
-                            <label for="password" className="block text-sm ">Password</label>
+                            <label htmlFor="password" className="block text-sm ">Password</label>
                         </div>
 
                         <input type="password" placeholder='Password'
@@ -104,7 +112,7 @@ const SignUp = () => {
                         {/* terms condition checkbox */}
                     <div className='mt-3'>
                 <input onClick={() => setChecked(!checked)} type="checkbox" className=" checked:bg-blue-500 mr-2" id='termsCondition' />
-               <label for="termsCondition"> I agree terms and conditions </label>
+               <label htmlFor="termsCondition"> I agree terms and conditions </label>
                </div>
 
                     <div className="mt-7"></div>
