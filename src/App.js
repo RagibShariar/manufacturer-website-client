@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Login from './Pages/Login/Login';
 import Navbar from './Pages/Shared/Navbar';
@@ -11,8 +13,9 @@ import Products from './Pages/Products/Products';
 import Reviews from './Pages/Reviews/Reviews';
 import Blogs from './Pages/Blogs/Blogs';
 import RequireAuth from './Pages/Login/RequireAuth';
-import Cart from './Pages/Cart/Cart';
 import Checkout from './Pages/Checkout/Checkout';
+import Cart from './Pages/Cart/Cart';
+import Purchase from './Pages/Purchase/Purchase';
 
 function App() {
   return (
@@ -32,8 +35,14 @@ function App() {
           <Route path="checkout" element={
             <RequireAuth><Checkout></Checkout></RequireAuth>
           }></Route>
+
+          <Route path="purchase/:id" element={<RequireAuth>
+            <Purchase></Purchase>
+          </RequireAuth>}></Route>
+          
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
+        <ToastContainer />
         <Footer></Footer>
       </Navbar>
     </>

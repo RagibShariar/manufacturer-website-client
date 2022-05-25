@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Product from '../Products/Product';
 
 const Cart = () => {
+    // const {name, img, price} = cart;
+
     return (
         <div className="bg-gray-100">
            
@@ -24,10 +27,10 @@ const Cart = () => {
           <div class="flex w-2/5">
                {/* <!-- product --> */}
             <div class="w-20">
-              <img class="h-24" src="https://drive.google.com/uc?id=18KkAVkGFvaGNqPy2DIvTqmUH_nk39o3z" alt=""/>
+              <img class="h-24" src="{img}" alt=""/>
             </div>
             <div class="flex flex-col justify-between ml-4 flex-grow">
-              <span class="font-bold text-sm">Iphone 6S</span>
+              <span class="font-bold text-sm"></span>
               <span class="text-red-500 text-xs">Apple</span>
               <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
             </div>
@@ -89,7 +92,7 @@ const Cart = () => {
   </div>
 </div>
 
-            </div>
+        </div>
     );
 };
 
