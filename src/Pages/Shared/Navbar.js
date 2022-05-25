@@ -19,7 +19,9 @@ const Navbar = ({children}) => {
         <li><NavLink className="mx-1 hover:underline btn btn-ghost rounded-none hover:bg-zinc-900 hover:text-slate-400" to="/products">Products</NavLink></li>
         <li><NavLink className="mx-1 hover:underline btn btn-ghost rounded-none hover:bg-zinc-900 hover:text-slate-400" to="/reviews">Reviews</NavLink></li>
         <li><NavLink className="mx-1 hover:underline btn btn-ghost rounded-none hover:bg-zinc-900 hover:text-slate-400" to="/blogs">Blogs</NavLink></li>
-        <li><NavLink className="mx-1 hover:underline btn btn-ghost rounded-none hover:bg-zinc-900 hover:text-slate-400" to="/cart">Cart</NavLink></li>
+        {
+          user && <li><NavLink className="mx-1 hover:underline btn btn-ghost rounded-none hover:bg-zinc-900 hover:text-slate-400" to="/dashboard">Dashboard</NavLink></li>
+        }
         <li>{user ? <button onClick={logout} className='mx-1 btn btn-ghost hover:bg-zinc-900'>Sign Out</button>
         : 
         <NavLink className="mx-1 btn border-none hover:bg-primary hover:border-primary" to="/login">Login</NavLink>}</li>
@@ -40,7 +42,7 @@ const Navbar = ({children}) => {
       <div className="flex-none lg:hidden">
         <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
         {/* Hamburger icon */}
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
         </label>
       </div> 
       <div className="flex-none hidden lg:block ">

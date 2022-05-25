@@ -2,14 +2,17 @@ import userEvent from '@testing-library/user-event';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import useProducts from '../../hooks/useProducts';
+import './Purchase.css';
 
 const Purchase = () => {
     const { id } = useParams();
     const [product, setProduct] = useState([]);
     const [quantityError, setQuantityError] = useState("");
     const [ quantity, setQuantity] = useState("");
+    const [disabled, setDisabled] = useState(true);
     const { _id, name, img, type, description, price, available, minimumOrder } = product;
     const [user, loading, error] = useAuthState(auth);
 
@@ -25,78 +28,115 @@ const Purchase = () => {
 
     const handleMinOrder = (e) => {
         // const {minOrder, available} = product;
-
+        
+        const minOrder = parseInt(product.minimumOrder);
         const available = parseInt(product.available);
-        const minOrder = parseInt(product.minOrder);
 
-        if (parseInt(e.target.value) < minOrder) {
-            setQuantityError('quan is low');
 
+        if ( parseInt(e.target.value) < minOrder ) {
+            setQuantityError(`Minimum order quantity is ${minimumOrder}`);
+            setDisabled(true);
             setQuantity(parseInt(e.target.value));
         }
-        else if (parseInt(e.target.value) > available) {
-            setQuantityError('Quan is too big');
+        else if ( parseInt(e.target.value) > available ) {
+            setQuantityError(`Sorry! Only ${available} pieces available.`);
+            setDisabled(true);
             setQuantity(parseInt(e.target.value));
         }
         else{
-            setQuantity(parseInt(e.target.value))
+            setQuantity(parseInt(e.target.value));
             setQuantityError("")
+            setDisabled(false);
         }
 
+    }
+    const handleOrder = (event) =>{
+        event.preventDefault();
+        console.log(_id, name);
+
+        const order = { // ki ki data niye db te pathabo
+            productId : _id,
+            product: name,
+            userEmail: user.email,
+            userName: user.displayName,
+            address: event.target.address.value,
+            phone: event.target.phone.value,
+            quantity: event.target.quantity.value
+        }
+    fetch('http://localhost:5000/order', {
+        method: 'POST', 
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(order)
+    })
+    .then(res => res.json())
+    .then(data => {
+        
+        // console.log(data);
+        if(data.success){
+            toast("Order placed successfully. Thank you for purchasing.")
+        }
+        else{
+            toast.error("You have already ordered this item. you can update quantity from 'My Orders'")
+        }
+    })
+    event.target.reset(); //reset form
     }
 
     return (
         <div className='pt-20 pb-16  bg-base-200'>
             <div className="container">
 
-                <div class="hero min-h-screen bg-base-200">
-                    <div class="hero-content flex-col lg:flex-row">
-                        <div class="text-center  lg:text-left shadow-lg">
+                <div className="hero min-h-screen bg-base-200">
+                    <div className="hero-content flex-col lg:flex-row">
+                        <div className="text-center  lg:text-left shadow-lg">
                             <img src={img} alt="" />
-                            <h1 class="text-5xl font-bold">Login now!</h1>
-                            <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                            <h1 className="text-5xl font-bold">Login now!</h1>
+                            <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                         </div>
-                        <div class="card  w-full max-w-lg shadow-2xl bg-base-100">
-                            <div class="card-body">
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Name</span>
+                        <div className="card  w-full max-w-lg shadow-2xl bg-base-100">
+                            <form  onSubmit={handleOrder } className="card-body">
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
                                     </label>
-                                    <input type="text" disabled value={user.displayName} class="input input-bordered" />
+                                    <input type="text" name='name' disabled value={user?.displayName || ''} className="input input-bordered" />
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Email</span>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" disabled value={user.email} class="input input-bordered" />
+                                    <input type="text" name='email' disabled value={user?.email || ''} className="input input-bordered" />
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Address</span>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Address</span>
                                     </label>
-                                    <input type="text" placeholder="Address" class="input input-bordered" />
+                                    <input type="text" name='address' placeholder="Address" className="input input-bordered" />
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Phone Number</span>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Phone Number</span>
                                     </label>
-                                    <input type="text" placeholder='Your Phone Number' class="input input-bordered" />
+                                    <input type="number" name='phone' placeholder='Your Phone Number' className="phone-input input input-bordered" />
                                 </div>
-                                <div class="form-control">
-                                    <label class="label">
-                                        <span class="label-text">Quantity</span>
-                                        <span class="label-text-alt">Min Order: {minimumOrder}</span>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Quantity</span>
+                                        <span className="label-text-alt">Min Order: {minimumOrder}</span>
                                     </label>
-                                    <input onChange={(e)=> handleMinOrder(e)} type="number" placeholder={minimumOrder} class="input input-bordered" />
-                                    <label class="label">
-                                        <span class="label-text-alt">{quantityError} </span>
-                                        <span class="label-text-alt">Max Order: {available}</span>
+                                    <input onChange={(e)=> handleMinOrder(e)} type="number" name='quantity' placeholder={minimumOrder} className="input input-bordered" />
+                                    <label className="label">
+                                        <span className="label-text-alt text-red-600">{quantityError}</span>
+                                        <span className="label-text-alt">Max Order: {available}</span>
                                     </label>
                                 </div>
-                                <div class="form-control mt-6">
-                                    <button class="btn btn-primary">Login</button>
+                                <div className="form-control mt-6">
+                                    
+                                    <input type="submit" value="Proceed Checkout" disabled={disabled} className="btn btn-primary" />
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

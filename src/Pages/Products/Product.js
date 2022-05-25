@@ -66,8 +66,8 @@ const Product = ({ product, setCart }) => {
                 <div className="card-actions items-center justify-between mb-4">
                     <h3 className='text-4xl font-bold'>$ {price}</h3>
 
-                    {/* <label onSubmit={setCart(product)} disabled={available === ""} for="purchase-modal" class="btn modal-button btn btn-primary font-bold text-white">Purchase Now</label> */}
-                    <Link  to={`/purchase/${_id}`}  className="btn btn-primary font-bold text-white">go purchase page </Link>
+                    {/* <label onSubmit={setCart(product)} disabled={available === ""} for="purchase-modal" className="btn modal-button btn btn-primary font-bold text-white">Purchase Now</label> */}
+                    <Link  to={`/purchase/${_id}`} disabled={available === ""}  className="btn btn-primary font-bold text-white">Purchase Now</Link>
                 </div>
             </div>
         </div>

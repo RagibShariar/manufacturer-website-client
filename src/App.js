@@ -16,6 +16,10 @@ import RequireAuth from './Pages/Login/RequireAuth';
 import Checkout from './Pages/Checkout/Checkout';
 import Cart from './Pages/Cart/Cart';
 import Purchase from './Pages/Purchase/Purchase';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyOrder from './Pages/Dashboard/MyOrder';
+import MyReview from './Pages/Dashboard/MyReview';
+import MyProfile from './Pages/Dashboard/MyProfile';
 
 function App() {
   return (
@@ -29,9 +33,7 @@ function App() {
           <Route path="blogs" element={<Blogs />}></Route>
           <Route path="login" element={<Login />}></Route>
           <Route path="signup" element={<SignUp />}></Route>
-          <Route path="cart" element={
-            <RequireAuth><Cart /></RequireAuth>
-          }></Route>
+          
           <Route path="checkout" element={
             <RequireAuth><Checkout></Checkout></RequireAuth>
           }></Route>
@@ -39,6 +41,15 @@ function App() {
           <Route path="purchase/:id" element={<RequireAuth>
             <Purchase></Purchase>
           </RequireAuth>}></Route>
+
+          <Route path="dashboard" element={<RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>}>
+            {/* nested route */}
+            <Route index element={<MyOrder></MyOrder>}></Route>
+            <Route path="review" element={<MyReview></MyReview>}></Route>
+            <Route path="profile" element={<MyProfile></MyProfile>}></Route>
+          </Route>
           
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
