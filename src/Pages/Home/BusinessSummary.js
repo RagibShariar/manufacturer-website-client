@@ -13,7 +13,7 @@ const BusinessSummary = () => {
         <div className='card container pb-16'>
             <h1 className='mt-12  mb-32 text-center text-3xl lg:text-5xl font-bold uppercase text-primary '>Millions Business Trust Us</h1>
 
-            <div className='lg:flex mx-auto'>
+            <div className='flex flex-col lg:flex-row items-center'>
                 {/* 1 */}
             <div className="card card-compact w-96 text-center  mb-6">
             <div className='text-9xl text-primary'>
