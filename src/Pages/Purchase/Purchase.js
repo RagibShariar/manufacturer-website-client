@@ -52,11 +52,12 @@ const Purchase = () => {
     }
     const handleOrder = (event) =>{
         event.preventDefault();
-        console.log(_id, name);
+        // console.log(_id, name);
 
         const order = { // ki ki data niye db te pathabo
             productId : _id,
             product: name,
+            productImg: img,
             userEmail: user.email,
             userName: user.displayName,
             address: event.target.address.value,
@@ -75,7 +76,7 @@ const Purchase = () => {
         
         // console.log(data);
         if(data.success){
-            toast("Order placed successfully. Thank you for purchasing.")
+            toast.success("Order placed successfully. Thank you for purchasing.")
         }
         else{
             toast.error("You have already ordered this item. you can update quantity from 'My Orders'")

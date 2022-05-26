@@ -5,6 +5,7 @@ import auth from '../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
+import useToken from '../../hooks/UseToken';
 
 const SignUp = () => {
     const [checked, setChecked] = useState(false);
@@ -17,6 +18,8 @@ const SignUp = () => {
     const location = useLocation();
     const from = location?.state?.from?.pathname || '/';
 
+    const [token] = useToken(user || googleUser);
+
     let signInError;
 
     if (loading || googleLoading || updating) {
@@ -26,9 +29,9 @@ const SignUp = () => {
     if (error || googleError || updateError) {
         signInError = <p className=' text-red-500'><small>{error?.message || googleError?.message || updateError?.message}</small></p>
     }
-
-    if (user || googleUser) {
-        console.log(user || googleUser);
+    
+    if(token){
+        navigate( from, { replace: true });
     }
 
     const onSubmit = async data => {
@@ -36,7 +39,7 @@ const SignUp = () => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
         // console.log('Update done');
-        navigate( from, { replace: true });
+        // navigate( from, { replace: true });
     }
 
     return (

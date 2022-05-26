@@ -25,6 +25,9 @@ const Products = () => {
         <div className=' container'> 
             <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
             {
+                products.length === 0 ?
+                <Loading></Loading>
+                :
                  products.map( product =>  <Product
                     key={product._id}
                     product={product}
@@ -35,10 +38,6 @@ const Products = () => {
                 </Product>)    
             }
             </div>
-            {
-                // cart && <PurchaseModal cart={cart}></PurchaseModal>
-                // cart && <Cart cart={cart}></Cart>
-            }
         </div>
     );
 };
