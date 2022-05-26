@@ -18,7 +18,7 @@ const Purchase = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch(`http://localhost:5000/products/${id}`)
+            const res = await fetch(`https://sleepy-harbor-06116.herokuapp.com/products/${id}`)
             const data = await res.json()
             setProduct(data);
             // console.log(data);
@@ -64,7 +64,7 @@ const Purchase = () => {
             phone: event.target.phone.value,
             quantity: event.target.quantity.value
         }
-    fetch('http://localhost:5000/order', {
+    fetch('https://sleepy-harbor-06116.herokuapp.com/order', {
         method: 'POST', 
         headers: {
             'content-type': 'application/json'

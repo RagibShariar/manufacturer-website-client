@@ -18,7 +18,7 @@ const MyReview = () => {
             userEmail: user.email,
             userImg : user.photoURL
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://sleepy-harbor-06116.herokuapp.com/reviews', {
         method: 'POST', 
         headers: {
             'content-type': 'application/json'

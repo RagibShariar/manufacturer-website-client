@@ -14,7 +14,7 @@ const MyOrder = () => {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?userEmail=${user.email}`, {
+            fetch(`https://sleepy-harbor-06116.herokuapp.com/order?userEmail=${user.email}`, {
                 method: 'GET',
                 headers: {
                     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -46,7 +46,7 @@ const MyOrder = () => {
         const confirm = window.confirm('Are you sure to cancel?');
         //removing item from database
         if (confirm) {
-            fetch(`http://localhost:5000/order/${id}`, {
+            fetch(`https://sleepy-harbor-06116.herokuapp.com/order/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
