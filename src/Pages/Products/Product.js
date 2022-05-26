@@ -6,7 +6,7 @@ const Product = ({ product, setCart }) => {
     // const [user, loading, error] = useAuthState(auth);
  
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-lg shadow-slate-300 mb-12">
+        <div className="card card-compact w-96 bg-base-100 shadow-lg shadow-slate-300 mb-12 mx-auto">
             <figure><img className='w-52' src={img} alt={name} /></figure>
             <div className="card-body">
                 <h2 className="mt-6 font-extrabold text-xl">{name}</h2>

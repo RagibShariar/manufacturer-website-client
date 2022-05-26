@@ -11,9 +11,9 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 const BusinessSummary = () => {
     return (
         <div className='card container pb-16'>
-            <h1 className='mt-12  mb-32 text-center text-5xl font-bold uppercase text-primary '>Millions Business Trust Us</h1>
+            <h1 className='mt-12  mb-32 text-center text-3xl lg:text-5xl font-bold uppercase text-primary '>Millions Business Trust Us</h1>
 
-            <div className='lg:flex '>
+            <div className='lg:flex mx-auto'>
                 {/* 1 */}
             <div className="card card-compact w-96 text-center  mb-6">
             <div className='text-9xl text-primary'>

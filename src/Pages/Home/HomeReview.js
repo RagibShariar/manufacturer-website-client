@@ -11,7 +11,7 @@ const HomeReview = () => {
         <div className='container py-20'>
             <h1 className=' text-primary text-5xl font-bold uppercase text-center'>Testimonials</h1>
             
-            <div className='mt-14 grid lg:grid-cols-3 grid-cols-1 gap-6'>
+            <div className='mt-14 gap-6 grid lg:grid-cols-3 grid-cols-1 gap-6'>
             {
                 reviews.length === 0 ?
                     <Loading></Loading>
