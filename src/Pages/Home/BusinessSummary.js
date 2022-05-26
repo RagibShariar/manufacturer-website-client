@@ -11,7 +11,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 const BusinessSummary = () => {
     return (
         <div className='card container pb-16'>
-            <h1 className='mt-6 mb-24 text-center text-5xl font-bold uppercase text-dark '>Millions Business Trust Us</h1>
+            <h1 className='mt-12  mb-32 text-center text-5xl font-bold uppercase text-primary '>Millions Business Trust Us</h1>
 
             <div className='lg:flex '>
                 {/* 1 */}
@@ -21,7 +21,7 @@ const BusinessSummary = () => {
             </div>
                 <div className="card-body">
                     <h2 className="mt-6 mb-2 text-8xl font-bold text-secondary">3</h2>
-                    <p className='text-xl text-primary uppercase'>Million Sold</p>
+                    <p className='text-xl text-primary uppercase font-semibold'>Million Sold</p>
                 </div>
             </div>
             <div className="card card-compact w-96 text-center   mb-6 ">
@@ -31,7 +31,7 @@ const BusinessSummary = () => {
             {/* 2 */}
                 <div className="card-body">
                     <h2 className="mt-6 mb-2 text-8xl font-bold text-secondary">45</h2>
-                    <p className='text-xl text-primary uppercase '>Partners</p>
+                    <p className='text-xl text-primary uppercase font-semibold '>Partners</p>
                 </div>
             </div>
             <div className="card card-compact w-96 text-center   mb-6 ">
@@ -41,7 +41,7 @@ const BusinessSummary = () => {
             {/* 3 */}
                 <div className="card-body">
                     <h2 className="mt-6 mb-2 text-8xl font-bold text-secondary">500+</h2>
-                    <p className='text-xl text-primary uppercase'>Regular Client</p>
+                    <p className='text-xl text-primary uppercase font-semibold'>Regular Client</p>
                 </div>
             </div>
             <div className="card card-compact w-96 text-center   mb-6 ">
@@ -51,7 +51,7 @@ const BusinessSummary = () => {
             {/* 4 */}
                 <div className="card-body">
                     <h2 className="mt-6 mb-2 text-8xl font-bold text-secondary">900+</h2>
-                    <p className='text-xl text-primary uppercase'>Reviews</p>
+                    <p className='text-xl text-primary uppercase font-semibold'>Reviews</p>
                 </div>
             </div>
             </div>

@@ -111,7 +111,7 @@ const Checkout = () => {
                                 <div className="w-full mx-auto rounded-lg bg-white border border-gray-200 text-gray-800 font-light mb-6">
                                     <div className="w-full p-3 border-b border-gray-200">
                                         <div className="mb-5">
-                                            <label for="type1" className="flex items-center cursor-pointer">
+                                            <label htmlFor="type1" className="flex items-center cursor-pointer">
                                                 <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type1" checked />
                                                     <img src="https://leadershipmemphis.org/wp-content/uploads/2020/08/780370.png" className="h-6 ml-3"/>
                                                     </label>
@@ -173,7 +173,7 @@ const Checkout = () => {
                                                 </div>
                                         </div>
                                         <div className="w-full p-3">
-                                            <label for="type2" className="flex items-center cursor-pointer">
+                                            <label htmlFor="type2" className="flex items-center cursor-pointer">
                                                 <input type="radio" className="form-radio h-5 w-5 text-indigo-500" name="type" id="type2"/>
                                                     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" width="80" className="ml-3" />
                                             </label>

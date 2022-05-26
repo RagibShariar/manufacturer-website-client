@@ -1,9 +1,10 @@
 import React from 'react';
-import { useQuery } from 'react-query';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
 import UserRow from './UserRow';
 
 const Users = () => {
+    
     const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
         method: 'GET',
         headers:{
@@ -14,16 +15,17 @@ const Users = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+
     return (
         <div>
-            <h2 className="text-2xl">All Users: {users.length}</h2>
+            <h2 className="text-2xl">Total number of users: {users.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full table-zebra">
                     <thead>
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>Job</th>
+                            <th>Email</th>
                             <th>Favorite Color</th>
                         </tr>
                     </thead>
@@ -43,3 +45,4 @@ const Users = () => {
 };
 
 export default Users;
+

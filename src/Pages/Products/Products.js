@@ -22,7 +22,10 @@ const Products = () => {
     
 
     return (
-        <div className=' container'> 
+        <div className=' container pt-28'> 
+        <div className="">
+                <h1 className=' text-primary text-5xl font-bold uppercase text-center'>Purchase Switches</h1>
+            </div>
             <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 '>
             {
                 products.length === 0 ?

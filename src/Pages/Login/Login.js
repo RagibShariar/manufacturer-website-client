@@ -5,7 +5,7 @@ import auth from '../../firebase.init';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
-import useToken from '../../hooks/UseToken';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const MyReview = () => {
     const [user, loading, error] = useAuthState(auth);
+    const [disabled, setDisabled] = useState(true);
 
     const handleReviewSubmit = (e) => {
         e.preventDefault();
@@ -32,10 +33,24 @@ const MyReview = () => {
             toast("Review added successfully.")
         }
         else{
-            toast("Please try again later.")
+            toast("Review added successfully.")
         }
     })
     e.target.reset(); //reset form
+    }
+
+    const handleRatingInput = (e) => {
+         e.preventDefault();   
+
+
+        if ( parseFloat(e.target.value) >=1 && parseFloat(e.target.value) <=5 ) {
+            setDisabled(false);
+            
+        }
+        else{
+            setDisabled(true);
+        }
+
     }
     
 
@@ -50,12 +65,12 @@ const MyReview = () => {
                         </div>
                         <div className="form-control py-3" >
                             <label className="label">
-                                <span className="label-text">Ratings</span>
+                                <span className="label-text">Enter Rating Number between 1 to 5</span>
                             </label>
-                            <input type="text" name='ratings' placeholder="Ratings" className="input input-accent w-24" />
+                            <input onChange={(e)=> handleRatingInput(e)} type="text" name='ratings' placeholder="Ratings" className="input input-accent w-24" />
                         </div>
                         <div>
-                            <button className='btn btn-accent btn-wide w-full'>Post</button>
+                            <button disabled={disabled} className='btn btn-accent btn-wide w-full'>Post</button>
                         </div>
                     </form>
                 </div>

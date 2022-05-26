@@ -20,6 +20,7 @@ const Navbar = ({children}) => {
         <li><NavLink className="mx-1 hover:underline btn btn-ghost rounded-none hover:bg-zinc-900 hover:text-slate-400" to="/products">Products</NavLink></li>
         <li><NavLink className="mx-1 hover:underline btn btn-ghost rounded-none hover:bg-zinc-900 hover:text-slate-400" to="/reviews">Reviews</NavLink></li>
         <li><NavLink className="mx-1 hover:underline btn btn-ghost rounded-none hover:bg-zinc-900 hover:text-slate-400" to="/blogs">Blogs</NavLink></li>
+        <li><NavLink className="mx-1 hover:underline btn btn-ghost rounded-none hover:bg-zinc-900 hover:text-slate-400" to="/portfolio">Portfolio</NavLink></li>
         {
           user && <li><NavLink className="mx-1 hover:underline btn btn-ghost rounded-none hover:bg-zinc-900 hover:text-slate-400" to="/dashboard">Dashboard</NavLink></li>
         }
