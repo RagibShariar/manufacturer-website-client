@@ -89,11 +89,14 @@ const Purchase = () => {
         <div className='pt-20 pb-16  bg-base-200'>
             <div className="container">
 
-                <div className="hero min-h-screen bg-base-200">
+                <div className="hero   min-h-screen ">
                     <div className="hero-content flex-col lg:flex-row">
-                        <div className="text-center  lg:text-left shadow-lg">
-                            <img src={img} alt="" />
-                            <h1 className="text-5xl font-bold">Login now!</h1>
+                        <div className="text-center   lg:text-left ">
+                            <img className='mx-auto' src={img} alt="" />
+                            <h1 className="my-4 text-6xl font-bold">$ {price}</h1>
+                            <h1 className="text-2xl font-bold">{name}</h1>
+                            <p className="my-2">Switch Type : <span className='font-bold'>{type}</span></p>
+                            <p className=" "><span className=''>{description}</span></p>
                             <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                         </div>
                         <div className="card  w-full max-w-lg shadow-2xl bg-base-100">
